@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+
+    <script>
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      (function () {
+        var repo = "/HypeToken"; // 👈 tu repo name
+        var l = window.location;
+
+        // l.pathname could be /HypeToken/ht/registro, etc.
+        // Redirect to /HypeToken/?p=/ht/registro&...
+        l.replace(
+          repo +
+            "/?p=" +
+            encodeURIComponent(l.pathname.replace(repo, "")) +
+            "&q=" +
+            encodeURIComponent(l.search.slice(1)) +
+            l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
