@@ -7,21 +7,20 @@
     <title>Redirecting...</title>
 
     <script>
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
       (function () {
-        var repo = "/HypeToken"; // 👈 tu repo name
         var l = window.location;
+        var path = l.pathname || "/";
+        var query = l.search ? l.search.slice(1) : "";
 
-        // l.pathname could be /HypeToken/ht/registro, etc.
-        // Redirect to /HypeToken/?p=/ht/registro&...
+        if (path === "/" && !query) {
+          l.replace("/");
+          return;
+        }
+
         l.replace(
-          repo +
-            "/?p=" +
-            encodeURIComponent(l.pathname.replace(repo, "")) +
-            "&q=" +
-            encodeURIComponent(l.search.slice(1)) +
-            l.hash
+          "/?p=" + encodeURIComponent(path) +
+          (query ? "&q=" + encodeURIComponent(query) : "") +
+          l.hash
         );
       })();
     </script>
